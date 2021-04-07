@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// xendit transaction
+Route::get('/payment', 'PaymentController@index');
+Route::post('/xendit/submit', 'PaymentController@submit')->name('form.submit');
+

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4d868defcaa64abaeef5807e8f0c2ef",
+    "content-hash": "dd2a3b730cc94a4e6b8f11d7a45572ef",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2557,6 +2557,41 @@
                 }
             ],
             "time": "2021-01-20T14:39:13+00:00"
+        },
+        {
+            "name": "xendit/xendit-php",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xendit/xendit-php.git",
+                "reference": "462ef3e13003039a522177bb576808f1bb16fe86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xendit/xendit-php/zipball/462ef3e13003039a522177bb576808f1bb16fe86",
+                "reference": "462ef3e13003039a522177bb576808f1bb16fe86",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "XenditClient\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "PHP clients for xendit api version 2",
+            "homepage": "https://github.com/xendit/xendit-php-clients",
+            "keywords": [
+                "xendit"
+            ],
+            "support": {
+                "issues": "https://github.com/xendit/xendit-php/issues",
+                "source": "https://github.com/xendit/xendit-php/tree/1.4.0"
+            },
+            "time": "2019-05-31T07:41:18+00:00"
         },
         {
             "name": "xendit/xendit-php-clients",
