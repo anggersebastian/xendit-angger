@@ -533,14 +533,13 @@
           <form class="form-signin" name="form" action="{{ route('form.submit') }}" method="POST">
           {{ csrf_field() }}
             <label for="username">Email</label>
-            <input class="form-styling" type="email" id="payer_email" name="payer_email" placeholder="name@example.com" value="<?= @$payer_email; ?>"/>
+            <input class="form-styling" type="email" id="payer_email" name="payer_email" value="<?= @$payer_email; ?>"/>
             <label for="password">Description Payment</label>
-            <input class="form-styling" id="description" name="description" rows="3" placeholder="event seminar" value="<?= @$description; ?>"/>
+            <input class="form-styling" id="description" name="description" rows="3" value="<?= @$description; ?>"/>
             <input type="checkbox" id="checkbox"/>
             <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
             <div class="btn-animate">
               <button type="submit" value="submit" class="btn-signin">Pay IDR 350K</button>
-              {{-- <a class="btn-signin" value="submit">Pay IDR 350K with Xendit</a> --}}
             </div>
           </form>
             
