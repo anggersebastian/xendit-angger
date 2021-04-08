@@ -39,7 +39,7 @@ class PaymentController extends Controller
         $response = curl_exec($curl);
 
         curl_close($curl);
-        return ['data' => 'Payment Success Please Check Invoice'];
+        return ['status' => 'Payment Success Please Check Invoice'];
 
     }
 }
