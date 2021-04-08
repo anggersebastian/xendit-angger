@@ -35,8 +35,10 @@ class PaymentController extends Controller
         ));
 
         $response = curl_exec($curl);
+        $response = json_decode($response, TRUE);
+        $url = $response['invoice_url'];
 
         curl_close($curl);
-        return ['status' => 'Payment Success Please Check Invoice'];
+        return redirect(url($url));
     }
 }
