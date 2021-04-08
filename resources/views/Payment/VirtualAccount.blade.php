@@ -15,7 +15,7 @@
           {{ csrf_field() }}
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">External ID</label>
-            <input type="text" id="external_id" name="external_id" class="form-control" value="<?= @$extId; ?>" placeholder="ex. 2321"></p>
+            <input type="text" id="extId" name="extId" class="form-control" value="<?= @$extId; ?>" placeholder="ex. 2321"></p>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -27,7 +27,7 @@
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Amount</label>
-            <input type="text" class="form-control" id="ammount" name="ammount" placeholder="200000" value="<?= @$amount; ?>">
+            <input type="text" class="form-control" id="amount" name="amount" placeholder="200000" value="<?= @$amount; ?>">
           </div>
           <button type="submit" value="submit" class="btn btn-primary">Apply Invoice</button>
           {{-- <input type="submit" value="submit"> --}}

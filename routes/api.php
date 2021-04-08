@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/xendit/va/list', 'Api\Payment\XenditController@getListVA');
-Route::post('/xendit/va/invoice', 'Api\Payment\XenditController@createVA');
+// Route::get('/xendit/va/list', 'Api\Payment\XenditController@getListVA');
+// Route::post('/xendit/va/invoice', 'Api\Payment\XenditController@createVA');
+
 
