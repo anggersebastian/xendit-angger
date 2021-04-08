@@ -12,11 +12,7 @@
       <h1>Create Xendit Invoice</h1>
       <div id="body">  
         <form action="{{ route('form.submit') }}" method="POST">
-          {{ csrf_field() }}
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">External ID</label>
-            <input type="text" id="extId" name="extId" class="form-control" value="<?= @$extId; ?>" placeholder="ex. 2321"></p>
-          </div>
+        {{ csrf_field() }}
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
             <input type="email" class="form-control" id="payer_email" name="payer_email" placeholder="name@example.com" value="<?= @$payer_email; ?>">

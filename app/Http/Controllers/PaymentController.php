@@ -27,7 +27,7 @@ class PaymentController extends Controller
         CURLOPT_FOLLOWLOCATION => false,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => 'external_id=12312&payer_email='.$payer_email.'&description='.$description.'&amount='.$amount,
+        CURLOPT_POSTFIELDS => 'external_id=demo_112&payer_email='.$payer_email.'&description='.$description.'&amount='.$amount,
         CURLOPT_HTTPHEADER => array(
             'Authorization: Basic eG5kX2RldmVsb3BtZW50X0xyMGlrSFFuaE80SFF3Z2ZQYjNtTWZBQjh1S3hTWWFOUDM1MzEyWk9RSmdVNUdPdlRDMjlhWG1lUXM3NU8wOg==',
             'username: xnd_development_Lr0ikHQnhO4HQwgfPb3mMfAB8uKxSYaNP35312ZOQJgU5GOvTC29aXmeQs75O0',
@@ -39,9 +39,7 @@ class PaymentController extends Controller
         $response = curl_exec($curl);
 
         curl_close($curl);
-        echo $response;
-
-        echo $request->input();
+        return ['data' => 'Payment Success Please Check Invoice'];
 
     }
 }
