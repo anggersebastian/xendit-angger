@@ -19,7 +19,7 @@ class PaymentController extends Controller
     public function submit(Request $request){
         $payer_email = $request->input('payer_email');
         $description = $request->input('description');
-
+        $exId = uniqid();
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -31,7 +31,7 @@ class PaymentController extends Controller
             CURLOPT_FOLLOWLOCATION => false,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'external_id=demo_112&payer_email='.$payer_email.'&description='.$description.'&amount=250000',
+            CURLOPT_POSTFIELDS => 'external_id='.$exId.'&payer_email='.$payer_email.'&description='.$description.'&amount=250000',
             CURLOPT_HTTPHEADER => array(
                 'Authorization: Basic eG5kX2RldmVsb3BtZW50X0xyMGlrSFFuaE80SFF3Z2ZQYjNtTWZBQjh1S3hTWWFOUDM1MzEyWk9RSmdVNUdPdlRDMjlhWG1lUXM3NU8wOg==',
                 'username: xnd_development_Lr0ikHQnhO4HQwgfPb3mMfAB8uKxSYaNP35312ZOQJgU5GOvTC29aXmeQs75O0',
@@ -44,15 +44,37 @@ class PaymentController extends Controller
         $response = json_decode($response, TRUE);
         $url = $response['invoice_url'];
         $payer_email = $response['payer_email'];
+        $description = $response['description'];
         $status = $response['status'];
 
         curl_close($curl);
 
+        //insert database
         $submit = new Payment();
+        $submit->external_id = $exId;
         $submit->customer_email = $payer_email;
+        $submit->description = $description;
         $submit->status = $status;
         $submit->save();
 
         return redirect(url($url));
     }
+
+    public function insertInvoice(Request $request){
+        $invoice = new Payment();
+        // dd($invoice->external_id);
+        $invoice->external_id = $request->input('external_id');
+        $invoice->payer_email = $request->input('payer_email');
+        $invoice->description = $request->input('description');
+        $invoice->status = $request->input('status');
+        // $invoice->save();
+        // DB::update([$invoice->external_id,$invoice->payer_email,$invoice->description,$invoice->status]);
+        Payment::whereId($invoice->external_id)->update($invoice);
+        return response()->json($invoice);
+    }
+    // public static function updateData($external_id){
+    //     DB::table('payments')
+    //       ->where('external_id', $external_id)
+    //       ->update($data);
+    //   }
 }
