@@ -17,7 +17,7 @@
             <h3 class="text-center">Thank you for your payment</h3>
             <h3 class="text-center">Please go to {{ $outlet }}</h3>
             <hr>
-            <p class="text-center">Your order # is: {{ $payment_code }}</p>
+            <p class="text-center">Your order is: {{ $payment_code }}</p>
             <hr>
             <h3 class="text-center"><u>Cara Membayar Melalui Gerai Alfamart/Indomaret</u></h3>
             <p class="text-center">
