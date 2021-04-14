@@ -15,6 +15,7 @@ class PaymentController extends Controller
         return view('Payment.Testing');
     }
 
+    //xendit submit payment
     public function submit(Request $request){
         $payer_email = $request->input('payer_email');
         $description = $request->input('description');
@@ -48,7 +49,6 @@ class PaymentController extends Controller
 
         curl_close($curl);
 
-        //insert database
         $submit = new Payment();
         $submit->external_id = $exId;
         $submit->payer_email = $payer_email;
@@ -59,15 +59,20 @@ class PaymentController extends Controller
         return redirect(url($url));
     }
 
+    //xendit update 
     public function insertInvoice(Request $request){
         $payment = Payment::where('external_id', $request->external_id)->first();
         $payment->status = $request->get('status');
         $payment->save();
-        if ($payment->save($payment->status == 'PAID')) {
-            return redirect('/xendit/payment')->with('alert-success','Berhasil Menambahkan Data!'); 
+        if ($payment->status == 'PAID') {
+            return response('Update Berhasil!');
        } else {
-            return redirect('/xendit/payment')->with('alert','Update Gagal!');
+            return response('Update Gagal!');
        }
+    }
+
+    public function retailOutlet(){
+
     }
 }
 
