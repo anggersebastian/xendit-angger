@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\DB;
 use App\Payment;
 
 class PaymentController extends Controller
@@ -52,7 +51,7 @@ class PaymentController extends Controller
         //insert database
         $submit = new Payment();
         $submit->external_id = $exId;
-        $submit->customer_email = $payer_email;
+        $submit->payer_email = $payer_email;
         $submit->description = $description;
         $submit->status = $status;
         $submit->save();
@@ -61,20 +60,14 @@ class PaymentController extends Controller
     }
 
     public function insertInvoice(Request $request){
-        $invoice = new Payment();
-        // dd($invoice->external_id);
-        $invoice->external_id = $request->input('external_id');
-        $invoice->payer_email = $request->input('payer_email');
-        $invoice->description = $request->input('description');
-        $invoice->status = $request->input('status');
-        // $invoice->save();
-        // DB::update([$invoice->external_id,$invoice->payer_email,$invoice->description,$invoice->status]);
-        Payment::whereId($invoice->external_id)->update($invoice);
-        return response()->json($invoice);
+        $payment = Payment::where('external_id', $request->external_id)->first();
+        $payment->status = $request->get('status');
+        $payment->save();
+        if ($payment->save($payment->status == 'PAID')) {
+            return redirect('/xendit/payment')->with('alert-success','Berhasil Menambahkan Data!'); 
+       } else {
+            return redirect('/xendit/payment')->with('alert','Update Gagal!');
+       }
     }
-    // public static function updateData($external_id){
-    //     DB::table('payments')
-    //       ->where('external_id', $external_id)
-    //       ->update($data);
-    //   }
 }
+
