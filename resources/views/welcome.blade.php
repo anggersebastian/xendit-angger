@@ -79,12 +79,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Xendit Testing
+                    Xendit 
                 </div>
 
+                {{-- <span>Xendit</span> --}}
                 <div class="links">
                     <a href="{{ url('https://dashboard.xendit.co/invoices') }}">Check Invoice</a>
-                    <a href="{{ url('/payment') }}">Create Xendit Invoice</a>
+                    <a href="{{ url('/xendit/payment') }}">Create Xendit Invoice</a>
+                    <a href="{{ url('/xendit/payment-outlet') }}">Create Xendit Outlet</a>
                 </div>
             </div>
         </div>

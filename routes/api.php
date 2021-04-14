@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/insert/invoice', 'PaymentController@insertInvoice');
+Route::post('/insert/outlet', 'PaymentController@insertOutlet');
 
 // Route::get('/xendit/va/list', 'Api\Payment\XenditController@getListVA');
 // Route::post('/xendit/va/invoice', 'Api\Payment\XenditController@createVA');

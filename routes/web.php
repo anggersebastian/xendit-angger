@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // xendit transaction
-Route::get('/payment', 'PaymentController@index');
+Route::get('/xendit/payment', 'PaymentController@createInvoice');
 Route::post('/xendit/submit', 'PaymentController@submit')->name('form.submit');
-Route::get('/testing', 'PaymentController@testing');
+Route::get('/xendit/payment-outlet', 'PaymentController@createOutlet')->name('outlet.form');
+Route::post('/xendit/submit-outlet', 'PaymentController@outletSubmit')->name('outlet.submit');
+Route::get('/xendit/payment-code', 'PaymentController@paymentCode');
