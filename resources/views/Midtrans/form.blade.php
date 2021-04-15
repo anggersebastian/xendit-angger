@@ -546,9 +546,6 @@
             <div class="btn-animate">
                 <button type="submit" value="submit" class="btn-signin">Submit</button>
             </div>
-            <div class="btn-animate">
-              <button type="submit" value="submit" class="btn-signin" id="pay-button">Pay IDR 250K with Midtrans</button>
-            </div>
           </form>
       </div>
     </div>
