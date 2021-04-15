@@ -19,7 +19,6 @@ class PaymentController extends Controller
         return view('Payment.CodeOutlet');
     }
 
-
     //xendit submit payment
     public function submit(Request $request){
         $payer_email = $request->input('payer_email');
