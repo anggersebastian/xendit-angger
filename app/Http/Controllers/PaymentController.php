@@ -116,7 +116,6 @@ class PaymentController extends Controller
         $outletSubmit->save();
 
         return view('Payment.CodeOutlet', compact('payment_code', 'outlet'));
-    
     }
 
     //xendit callback outlet
@@ -124,11 +123,10 @@ class PaymentController extends Controller
         $paymentOutlet = Payment::where('external_id', $request->external_id)->first();
         $paymentOutlet->status = $request->get('status');
         $paymentOutlet->save();
-        echo $paymentOutlet;
-        if ($paymentOutlet->status == 'SETTLING') {
-            return response('Update Gagal!');
+        if ($paymentOutlet->status == 'SETTLING' || $paymentOutlet->status == 'COMPLETED') {
+            return response('User already settled or completed!');
        } else {
-            return response('Update Berhasil!');
+            return response('User still not completed the payment!');
        }
     }
 }
