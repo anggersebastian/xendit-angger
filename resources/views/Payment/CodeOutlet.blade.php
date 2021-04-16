@@ -17,7 +17,6 @@
             <h3 class="text-center">Thank you for your payment</h3>
             <h3 class="text-center">Please go to {{ $outlet }}</h3>
             <hr>
-            <p class="text-center">Your order is: {{ $payment_code }}</p>
             <p class="text-center">Your code payment: <u style="color:blue;">{{ $payment_code }}</u></p>
             <p class="text-center">Total Order <u style="color:green;">IDR 250K</u></p>
             <hr>
