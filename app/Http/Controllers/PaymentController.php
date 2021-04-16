@@ -102,7 +102,7 @@ class PaymentController extends Controller
 
         $response = curl_exec($curl); 
         $response = json_decode($response, TRUE);
-        $status = $response['status'];
+        $status = $response['status']; // response status ke db yaitu active
         $name = $response['name'];
         $outlet = $response['retail_outlet_name'];
         $payment_code = $response['payment_code'];

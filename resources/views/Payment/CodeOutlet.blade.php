@@ -18,11 +18,13 @@
             <h3 class="text-center">Please go to {{ $outlet }}</h3>
             <hr>
             <p class="text-center">Your order is: {{ $payment_code }}</p>
+            <p class="text-center">Your code payment: <u style="color:blue;">{{ $payment_code }}</u></p>
+            <p class="text-center">Total Order <u style="color:green;">IDR 250K</u></p>
             <hr>
-            <h3 class="text-center"><u>Cara Membayar Melalui Gerai Alfamart/Indomaret</u></h3>
+            <h3 class="text-center"><u>Cara Membayar Melalui Gerai {{ $outlet }}</u></h3>
             <p class="text-center">
-                1. Datang ke salah satu gerai Alfamart/Indomaret terdekat<br>
-                2. Beritahu kasir untuk melakukan pembayaran ke Xendit, atau nama bisnis Anda<br>
+                1. Datang ke salah satu gerai {{ $outlet }} terdekat<br>
+                2. Beritahu kasir untuk melakukan pembayaran ke Xendit<br>
                 3. Tunjukkan kode pembayaran tagihan<br>
                 4. Lakukan pembayaran sesuai dengan nominal tagihan<br>
                 5. Terima tanda terima sebagai bukti pembayaran<br>
