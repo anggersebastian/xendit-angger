@@ -70,9 +70,9 @@ class PaymentController extends Controller
         $payment->save();
         if ($payment->status == 'PAID') {
             return response('Update Berhasil!');
-       } else {
+        } else {
             return response('Update Gagal!');
-       }
+        }
     }
 
     //xendit submit outlet
@@ -125,9 +125,9 @@ class PaymentController extends Controller
         $paymentOutlet->save();
         if ($paymentOutlet->status == 'SETTLING' || $paymentOutlet->status == 'COMPLETED') {
             return response('User already settled or completed!');
-       } else {
+        } else {
             return response('User still not completed the payment!');
-       }
+        }
     }
 }
 
