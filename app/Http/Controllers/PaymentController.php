@@ -102,7 +102,7 @@ class PaymentController extends Controller
 
         $response = curl_exec($curl); 
         $response = json_decode($response, TRUE);
-        $status = $response['status']; // response status ke db yaitu active
+        $status = $response['status']; // response status ke db yaitu ACTIVE
         $name = $response['name'];
         $outlet = $response['retail_outlet_name'];
         $payment_code = $response['payment_code'];
@@ -128,6 +128,23 @@ class PaymentController extends Controller
         } else {
             return response('User still not completed the payment!');
         }
+    }
+
+    public function test(){
+        $parameters = array(
+            'merchantid' => env('MERCHANT_ID'),
+            'txnid' => '12345678',
+            'amount' => 2000,
+            'ccy' => 'PHP',
+            'description' => 'testing api',
+            'email' => 'testing@gmail.com',
+        );
+
+        $parameters['amount'] = number_format($parameters['amount'], 2, '.', '');
+        $parameters['secretkey'] = env('MERCHANT_PASSWORD');       
+        $digest_string = implode(':', $parameters);
+        $parameters['digest'] = sha1($digest_string);
+        echo $parameters['digest'];
     }
 }
 
