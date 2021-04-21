@@ -26,7 +26,4 @@ Route::post('/insert/outlet', 'PaymentController@insertOutlet');
 //midtrans
 Route::post('/insert/transaction', 'MidtransController@getTransaction');
 
-// Route::get('/xendit/va/list', 'Api\Payment\XenditController@getListVA');
-// Route::post('/xendit/va/invoice', 'Api\Payment\XenditController@createVA');
-
 
