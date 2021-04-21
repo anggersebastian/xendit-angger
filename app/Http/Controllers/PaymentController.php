@@ -129,23 +129,6 @@ class PaymentController extends Controller
             return response('User still not completed the payment!');
         }
     }
-
-    public function test(){
-        $parameters = array(
-            'merchantid' => env('MERCHANT_ID'),
-            'txnid' => '12345678',
-            'amount' => 2000,
-            'ccy' => 'PHP',
-            'description' => 'testing api',
-            'email' => 'testing@gmail.com',
-        );
-
-        $parameters['amount'] = number_format($parameters['amount'], 2, '.', '');
-        $parameters['secretkey'] = env('MERCHANT_PASSWORD');       
-        $digest_string = implode(':', $parameters);
-        $parameters['digest'] = sha1($digest_string);
-        echo $parameters['digest'];
-    }
 }
 
 

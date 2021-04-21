@@ -19,8 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//xendit
 Route::post('/insert/invoice', 'PaymentController@insertInvoice');
 Route::post('/insert/outlet', 'PaymentController@insertOutlet');
+
+//midtrans
+Route::post('/insert/transaction', 'MidtransController@getTransaction');
 
 // Route::get('/xendit/va/list', 'Api\Payment\XenditController@getListVA');
 // Route::post('/xendit/va/invoice', 'Api\Payment\XenditController@createVA');

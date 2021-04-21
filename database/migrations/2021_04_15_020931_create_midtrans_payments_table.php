@@ -15,6 +15,11 @@ class CreateMidtransPaymentsTable extends Migration
     {
         Schema::create('midtrans_payments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('order_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('status');
             $table->timestamps();
         });
     }

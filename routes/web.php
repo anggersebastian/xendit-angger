@@ -30,9 +30,11 @@ Route::get('/xendit/payment-code', 'PaymentController@paymentCode');
 Route::get('/midtrans/payment', 'MidtransController@form');
 Route::post('/midtrans/submit', 'MidtransController@midtransSubmit')->name('form1.submit');
 Route::get('/midtrans/submit2', 'MidtransController@midtransSubmit')->name('form2.submit');
+Route::get('/midtrans/transaction', 'MidtransController@getTransaction');
 
 // Dragonpay
 Route::get('/dragonpay/payment', 'DragonpayController@form');
 
 //test
-Route::get('/testing', 'PaymentController@test');
+Route::get('test', 'DragonpayController@coba');
+Route::post('/testing', 'DragonpayController@test')->name('form.test');
