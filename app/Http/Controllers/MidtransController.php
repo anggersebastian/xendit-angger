@@ -68,8 +68,14 @@ class MidtransController extends Controller
     public function getTransaction(Request $request){
         $midtransPayment = MidtransPayment::where('order_id', $request->order_id)->first();
         $midtransPayment->status = $request->get('fraud_status');
+        if ($payment->status == 'accept'){
+            $payment->status == 'SUCCESS';
+        } else {
+            $payment->status == 'PENDING';
+        }
         $midtransPayment->save();
         return response('success');
+        
         // if ($payment->status == 'PAID') {
         //     return response('Update Berhasil!');
         // } else {
