@@ -69,9 +69,9 @@ class PaymentController extends Controller
         $payment->status = $request->get('status');
         $payment->save();
         if ($payment->status == 'PAID') {
-            return response('Update Berhasil!');
+            return response('Update Success!');
         } else {
-            return response('Update Gagal!');
+            return response('Update Failed!');
         }
     }
 

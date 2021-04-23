@@ -71,7 +71,7 @@ class MidtransController extends Controller
         $midtransPayment = MidtransPayment::where('order_id', $request->order_id)->first();
         $midtransPayment->bank = $request->get('bank');
         $midtransPayment->payment_type = $request->get('payment_type');
-        $midtransPayment->status = $request->get('transaction_status');
+        $midtransPayment->status = $request->get('transaction_status'); //jika success maka akan update parameter status menjadi capture
         $midtransPayment->save();
     }
 }
