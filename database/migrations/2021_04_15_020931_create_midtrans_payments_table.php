@@ -19,6 +19,8 @@ class CreateMidtransPaymentsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->string('bank');
+            $table->string('payment_type');
             $table->string('status');
             $table->timestamps();
         });

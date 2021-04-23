@@ -59,6 +59,8 @@ class MidtransController extends Controller
         $midtransSubmit->name = $name;
         $midtransSubmit->email = $email;
         $midtransSubmit->phone = $phone;
+        $midtransSubmit->bank = '';
+        $midtransSubmit->payment_type = '';
         $midtransSubmit->status = "PENDING";
         $midtransSubmit->save();
 
@@ -67,13 +69,9 @@ class MidtransController extends Controller
 
     public function getTransaction(Request $request){
         $midtransPayment = MidtransPayment::where('order_id', $request->order_id)->first();
-        $midtransPayment->status = $request->get('fraud_status');
-        if ($request->get('fraud_status') == 'accept'){
-            $request->get('fraud_status') == 'SUCCESS';
-            $request->get('fraud_status')->save();
-        } else {
-            $request->get('fraud_status') == 'PENDING';
-        }
+        $midtransPayment->bank = $request->get('bank');
+        $midtransPayment->payment_type = $request->get('payment_type');
+        $midtransPayment->status = $request->get('transaction_status');
         $midtransPayment->save();
         return response('success');
     }
