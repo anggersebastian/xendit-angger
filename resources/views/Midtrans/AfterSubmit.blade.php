@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Code Payment</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script type="text/javascript"
-      src="https://app.sandbox.midtrans.com/snap/snap.js"
-      data-client-key="SB-Mid-client-RU8wIZ5asOLAJEKv"></script>
-</head>
-<body>
+@extends('layouts.afterSubmit')
+@section('body')
 <div class="container" style="margin-top:5%;">
 	<div class="row">
     <div class="jumbotron" style="box-shadow: 2px 2px 4px #000000;">
@@ -27,17 +16,19 @@
     </div>
 	</div>
 </div>
+@endsection
 
-    <script type="text/javascript">
-      var payButton = document.getElementById('pay-button');
-      payButton.addEventListener('click', function () {
-        snap.pay('{{ $token }}', {
-          onSuccess: function(result){console.log('success');console.log(result);},
-          onPending: function(result){console.log('pending');console.log(result);},
-          onError: function(result){console.log('error');console.log(result);},
-          onClose: function(){console.log('customer closed the popup without finishing the payment');}
-        });
-      });
-    </script>
-</body>
-</html>
+@section('js')
+<script type="text/javascript">
+  var payButton = document.getElementById('pay-button');
+  payButton.addEventListener('click', function () {
+    snap.pay('{{ $token }}', {
+      onSuccess: function(result){console.log('success');console.log(result);},
+      onPending: function(result){console.log('pending');console.log(result);},
+      onError: function(result){console.log('error');console.log(result);},
+      onClose: function(){console.log('customer closed the popup without finishing the payment');}
+    });
+  });
+</script>
+@endsection
+

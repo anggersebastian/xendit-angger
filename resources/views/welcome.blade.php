@@ -78,9 +78,9 @@
             @endif
 
             <div class="content">
-                {{-- <div class="title m-b-md">
-                    Xendit 
-                </div> --}}
+                <div class="title m-b-md">
+                    Payment 
+                </div>
                 
                 <hr><span>Xendit</span><hr>                
                 <div class="links">
