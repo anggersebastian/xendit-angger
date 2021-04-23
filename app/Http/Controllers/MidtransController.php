@@ -73,6 +73,5 @@ class MidtransController extends Controller
         $midtransPayment->payment_type = $request->get('payment_type');
         $midtransPayment->status = $request->get('transaction_status');
         $midtransPayment->save();
-        return response('success');
     }
 }
