@@ -78,15 +78,21 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                {{-- <div class="title m-b-md">
                     Xendit 
-                </div>
-
-                {{-- <span>Xendit</span> --}}
+                </div> --}}
+                
+                <hr><span>Xendit</span><hr>                
                 <div class="links">
                     <a href="{{ url('https://dashboard.xendit.co/invoices') }}">Check Invoice</a>
-                    <a href="{{ url('/xendit/payment') }}">Create Xendit Invoice</a>
+                    <a href="{{ url('/xendit/payment') }}">Create Xendit Payment</a>
                     <a href="{{ url('/xendit/payment-outlet') }}">Create Xendit Outlet</a>
+                </div>
+                <br>
+                <hr><span>Midtrans</span><hr>
+                <div class="links">
+                    <a href="{{ url('https://account.midtrans.com/login') }}">Check Transaction</a>
+                    <a href="{{ url('/midtrans/payment') }}">Create Midtrans Payment</a>
                 </div>
             </div>
         </div>
