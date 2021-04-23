@@ -70,6 +70,7 @@ class MidtransController extends Controller
         $midtransPayment->status = $request->get('fraud_status');
         if ($request->get('fraud_status') == 'accept'){
             $request->get('fraud_status') == 'SUCCESS';
+            $request->get('fraud_status')->save();
         } else {
             $request->get('fraud_status') == 'PENDING';
         }

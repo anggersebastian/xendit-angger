@@ -27,3 +27,4 @@ Route::post('/insert/outlet', 'PaymentController@insertOutlet');
 Route::post('/insert/transaction', 'MidtransController@getTransaction');
 
 
+
